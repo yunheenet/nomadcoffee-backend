@@ -2,7 +2,7 @@ import { gql } from 'apollo-server';
 
 export default gql`
   type User {
-    id: String!
+    id: Int!
     username: String!
     email: String!
     name: String
@@ -10,15 +10,5 @@ export default gql`
     password: String!
     avataURL: String
     githubUsername: String
-  }
-  type Result {
-    ok: Boolean!
-    error: String
-  }
-  type Mutation {
-    createAccount(username: String!, email: String!, password: String!): Result
-  }
-  type Query {
-    seeProfile(username: String!): User
   }
 `;
