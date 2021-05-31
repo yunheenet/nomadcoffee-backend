@@ -8,7 +8,6 @@ export default {
       async (
         _,
         {
-          id,
           password,
           username,
           email,
@@ -19,13 +18,6 @@ export default {
         },
         { loggedInUser }
       ) => {
-        if (user.id !== loggedInUser.id) {
-          return {
-            ok: false,
-            error: 'permission error.',
-          };
-        }
-
         let uglyPassword;
         if (password) {
           uglyPassword = await bcrypt.hash(password, 10);
@@ -33,7 +25,7 @@ export default {
 
         const updatedUser = await client.user.update({
           where: {
-            id,
+            id: loggedInUser.id,
           },
           data: {
             ...(username && { username }),

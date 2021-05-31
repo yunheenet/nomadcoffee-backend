@@ -10,9 +10,9 @@ export default gql`
       password: String!
       avatarURL: String
       githubUsername: String
-    ): createAccountResult!
+    ): CreateAccountResult!
   }
-  type createAccountResult {
+  type CreateAccountResult {
     ok: Boolean!
     error: String
   }

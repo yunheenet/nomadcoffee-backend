@@ -11,9 +11,9 @@ export default gql`
       avatarURL: String
       githubUsername: String
       password: String
-    ): editProfileResponse!
+    ): EditProfileResult!
   }
-  type editProfileResponse {
+  type EditProfileResult {
     ok: Boolean!
     error: String
   }
